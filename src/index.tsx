@@ -3,11 +3,11 @@ import * as ReactDOM from 'react-dom';
 
 import './global-styles.scss';
 
-import App from './components/app/app';
+import Clock from './components/clock/clock';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App test="test" />
+    <Clock test="MSC" />
   </React.StrictMode>,
   document.getElementById('root')
 );
