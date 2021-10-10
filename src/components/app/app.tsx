@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 export default class App extends React.Component<{}> {
-    props: any;
+    public props: any;
 
     constructor(props: any) {
         super(props);
