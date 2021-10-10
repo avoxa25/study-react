@@ -3,9 +3,11 @@ import * as ReactDOM from 'react-dom';
 
 import './global-styles.scss';
 
+import App from './components/app/app';
+
 ReactDOM.render(
-<div>
-<h1 className='red'>Hello, it's Vladimir Abdullaev's study project!</h1>
-</div>,
+<React.StrictMode>
+    <App />
+</React.StrictMode>,
   document.getElementById('root')
 );
