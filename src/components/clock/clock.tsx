@@ -10,6 +10,8 @@ export default class Clock extends React.Component<{}> {
 
     this.props = props;
     this.state = { date: new Date() }
+
+    this.addHour = this.addHour.bind(this);
   }
 
   public componentDidMount(): void {
@@ -24,11 +26,17 @@ export default class Clock extends React.Component<{}> {
     this.setState({ date: new Date() });
   }
 
+  private addHour(): void {
+    const newDate: number = Date.parse(this.state.date) + 3600*1000;
+    this.setState({ date: new Date(newDate) });
+  }
+
   render(): JSX.Element {
     return (
       <section>
         <h2 className="red">Time is Now:</h2>
         <p>{this.state.date.toLocaleTimeString()}, {this.props.test}</p>
+        <button onClick={this.addHour}>Add hour</button>
       </section>
     )
   }
