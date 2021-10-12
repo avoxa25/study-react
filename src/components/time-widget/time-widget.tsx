@@ -23,7 +23,7 @@ export default class TimeWidget extends React.Component<{}> {
     return (
       <section>
         <Clock onTimeChange={this.handleTimeChange} />
-        <TimeCard />
+        <TimeCard timeInMs={this.state.ms}/>
       </section>
     )
   }
