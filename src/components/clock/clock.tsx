@@ -12,6 +12,7 @@ export default class Clock extends React.Component<{}> {
     this.state = { date: new Date() }
 
     this.addHour = this.addHour.bind(this);
+    this.makeMark = this.makeMark.bind(this);
   }
 
   public componentDidMount(): void {
@@ -34,12 +35,18 @@ export default class Clock extends React.Component<{}> {
     this.props.onTimeChange(newDate);
   }
 
+  private makeMark(): void {
+    const currentDate: Date = this.state.date;
+    this.props.makeMark(currentDate);
+  }
+
   render(): JSX.Element {
     return (
       <section>
         <h2 className="red">Time is Now:</h2>
         <p>{this.state.date.toLocaleTimeString()}, {this.props.test}</p>
         <button onClick={this.addHour}>Add hour</button>
+        <button onClick={this.makeMark}>Make mark</button>
       </section>
     )
   }

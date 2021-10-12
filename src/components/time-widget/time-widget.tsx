@@ -13,11 +13,15 @@ export default class TimeWidget extends React.Component<{}> {
 
     this.props = props;
     this.handleTimeChange = this.handleTimeChange.bind(this);
+    this.pushMark = this.pushMark.bind(this);
   }
 
   public handleTimeChange(ms: number): void {
     this.setState({ms: ms});
-    this.elapsedTime.push(new Date(ms));
+  }
+
+  private pushMark(date: Date): void {
+    this.elapsedTime.push(date)
   }
 
   render(): JSX.Element {
@@ -25,7 +29,7 @@ export default class TimeWidget extends React.Component<{}> {
 
     return (
       <section>
-        <Clock onTimeChange={this.handleTimeChange} />
+        <Clock onTimeChange={this.handleTimeChange} makeMark={this.pushMark}/>
         <TimeCard timeInMs={this.state.ms}/>
         <ul>
           {elapsedTime}
