@@ -3,8 +3,6 @@ import * as ReactDOM from 'react-dom';
 
 import './global-styles.scss';
 
-import Clock from './components/clock/clock';
-import TimeCard from './components/time-card/time-card';
 import TimeWidget from './components/time-widget/time-widget';
 
 ReactDOM.render(
