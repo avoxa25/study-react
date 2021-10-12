@@ -23,11 +23,12 @@ export default class Clock extends React.Component<{}> {
   }
 
   private launchClock(): void {
-    this.setState({ date: new Date() });
+    const newDate: number = Date.parse(this.state.date) + 1000;
+    this.setState({ date: new Date(newDate) });
   }
 
   private addHour(): void {
-    const newDate: number = Date.parse(this.state.date) + 3600*1000;
+    const newDate: number = Date.parse(this.state.date) + 3600 * 1000;
     this.setState({ date: new Date(newDate) });
   }
 
