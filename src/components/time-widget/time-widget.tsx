@@ -16,7 +16,6 @@ export default class TimeWidget extends React.Component<{}> {
 
   public handleTimeChange(ms: number): void {
     this.setState({ms: ms});
-    console.log(ms);
   }
 
   render(): JSX.Element {
