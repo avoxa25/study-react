@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function PhotoSection(): JSX.Element {
     const imageLinks: Array<string> =
@@ -9,17 +9,24 @@ export default function PhotoSection(): JSX.Element {
         ];
 
     let [index, setIndex] = useState(0);
+    let [clicks, setClicks] = useState(0);
+    
+    useEffect(() => {
+        let counter = document.querySelector('#counter') as HTMLParagraphElement;
+        counter.innerHTML = clicks.toString();
+    })
 
     function calculation(operatorName: string): number {
         let number = 0;
+        setClicks(clicks + 1);
 
-        switch(operatorName) {
+        switch (operatorName) {
             case 'plus':
-            number = 1;
-            break;
+                number = 1;
+                break;
             case 'minus':
-            number = -1;
-            break;
+                number = -1;
+                break;
         }
 
         if (index + number < 0) return imageLinks.length - 1;
@@ -32,6 +39,7 @@ export default function PhotoSection(): JSX.Element {
             <img src={imageLinks[index]} alt="some clock" width="300" height="300" />
             <button onClick={() => setIndex(calculation('minus'))}>prev image</button>
             <button onClick={() => setIndex(calculation('plus'))}>next image</button>
+            <p id="counter"></p>
         </section>
     );
 }
