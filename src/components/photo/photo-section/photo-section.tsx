@@ -16,18 +16,8 @@ export default function PhotoSection(): JSX.Element {
         counter.innerHTML = clicks.toString();
     })
 
-    function calculation(operatorName: string): number {
-        let number = 0;
+    function calculation(number: number = 0): number {
         setClicks(clicks + 1);
-
-        switch (operatorName) {
-            case 'plus':
-                number = 1;
-                break;
-            case 'minus':
-                number = -1;
-                break;
-        }
 
         if (index + number < 0) return imageLinks.length - 1;
         if (index + number > imageLinks.length - 1) return 0;
@@ -37,8 +27,8 @@ export default function PhotoSection(): JSX.Element {
     return (
         <section>
             <img src={imageLinks[index]} alt="some clock" width="300" height="300" />
-            <button onClick={() => setIndex(calculation('minus'))}>prev image</button>
-            <button onClick={() => setIndex(calculation('plus'))}>next image</button>
+            <button onClick={() => setIndex(calculation(-1))}>prev image</button>
+            <button onClick={() => setIndex(calculation(1))}>next image</button>
             <p id="counter"></p>
         </section>
     );
