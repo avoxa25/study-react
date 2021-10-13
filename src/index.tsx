@@ -9,7 +9,7 @@ import PhotoSection from './components/photo/photo-section/photo-section';
 ReactDOM.render(
   <React.StrictMode>
     <TimeWidget />
-    <PhotoSection/>
+    <PhotoSection />
   </React.StrictMode>,
   document.getElementById('root')
 );
